@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <style>
+      body {
+        /* background-color: black; */
+        background-image: url('{% static "background.jpg"%}');
+      }
+      #map_container {
+        display: flex;
+        justify-content: center;
+        border-width: 20%;
+        border-color: goldenrod;
+        /* background-color: aqua; */
+        /* width: 50%; */
+      }
+      #map {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        border-radius: 10px;
+        border: 10px solid goldenrod;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1
+      style="
+        color: goldenrod;
+        font-size: 70px;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      Select a match
+    </h1>
+
+    <div id="map_container">
+      <div id="map" style="height: 500px"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var map = L.map("map").setView([43.4631, 65.292279], 1);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(map);
+
+ 
+
+  var markerArgentina = L.marker([-38.4192641, -63.5989206])
+    .addTo(map)
+    .bindPopup(`<a target="_blank" href="argentina">Argentina vs France</a>`, {
+      closeOnClick: false,
+      autoClose: false,
+    });
+
+  var markerNetherlands = L.marker([52.2129919, 5.2793703])
+    .addTo(map)
+    .bindPopup(
+      `<a target="_blank" href="netherlands">Netherlands vs Argentina</a>`,
+      {
+        closeOnClick: false,
+        autoClose: false,
+      }
+    );
+
+  var markerCameroon = L.marker([7.3696495, 12.3445856])
+    .addTo(map)
+    .bindPopup(`<a target="_blank" href="cameroon">Cameroon vs Brazil</a>`, {
+      closeOnClick: false,
+      autoClose: false,
+    });
+
+  var markerCroatia = L.marker([44.4737849, 16.4688717])
+    .addTo(map)
+    .bindPopup(`<a target="_blank" href="croatia">Croatia vs Brazil</a>`, {
+      closeOnClick: false,
+      autoClose: false,
+    });
+
+  var markerJapan = L.marker([37.4900318, 136.4664008])
+    .addTo(map)
+    .bindPopup(`<a target="_blank" href="japan">Japan vs Croatia</a>`, {
+      closeOnClick: false,
+      autoClose: false,
+    });
+
+  var markerMorocco = L.marker([31.794525, -7.0849336])
+    .addTo(map)
+    .bindPopup(`<a target="_blank" href="morocco">Morocco vs Spain</a>`, {
+      closeOnClick: false,
+      autoClose: false,
+    });
+
+  var markerWales = L.marker([55.4631, -2.292279])
+    .addTo(map)
+    .bindPopup(`<a target="_blank" href="wales">Wales vs Iran</a>`, {
+      closeOnClick: false,
+      autoClose: false,
+    });
+
+    var marker = L.marker([53.4631, -2.292279])
+    .addTo(map)
+    .bindPopup(
+      `<a target="_blank" href="man_u">Manchester United vs Manchester City</a>`,
+      {
+        closeOnClick: false,
+        autoClose: false,
+      }
+    );
+
+  var markerPortugal = L.marker([39.3999, -8.2245])
+    .addTo(map)
+    .bindPopup(
+      `<a target="_blank" href="tot">Tottenham vs Leicester City</a>`,
+      {
+        closeOnClick: false,
+        autoClose: false,
+      }
+    );
+
+
+
+
+</script>
