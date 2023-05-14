@@ -1,0 +1,507 @@
+{% load static %}
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}" /> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script> -->
+    <!-- <link -->
+    <!-- rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  /> -->
+    <style>
+      body {
+        /* background-color: #000000; */
+        background-image: url('{% static "background.jpg"%}');
+      }
+
+      #nav_bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        /* background-color: goldenrod; */
+        /* padding-left: 5%; */
+        margin-bottom: 5em;
+      }
+
+      #navigation_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        /* background-color: goldenrod; */
+        height: 6em;
+        width: 50%;
+        margin-top: 2.5em;
+        border-radius: 1em;
+        /* border-color: golde  nrod; */
+        border-width: 0.1em;
+        border-style: solid;
+      }
+
+      #heading_container {
+        /* background-color: rgb(0, 0, 0); */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #columns_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      #left_column {
+        padding: 0em 1em 0em 1em;
+      }
+      #right_column {
+        background-color: goldenrod;
+        padding: 1em;
+        height: 30em;
+        border-radius: 2em;
+      }
+
+      #links_container {
+        margin-top: 2%;
+        /* background-color: rgb(94, 255, 0); */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      #slider_container {
+        /* background-color: rgb(177, 39, 165); */
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        --c: goldenrod;
+        color: var(--c);
+        font-size: 16px;
+        border: 0.3em solid var(--c);
+        border-radius: 0.5em;
+        width: 26em;
+        height: 3em;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: sans-serif;
+        letter-spacing: 0.1em;
+        text-align: center;
+        line-height: 3em;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: 0.5s;
+        margin: 1em;
+      }
+
+      nav ul li span {
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        background-color: var(--c);
+        transform: translateY(150%);
+        border-radius: 50%;
+        left: calc((var(--n) - 1) * 25%);
+        transition: 0.5s;
+        transition-delay: calc((var(--n) - 1) * 0.1s);
+        z-index: -1;
+      }
+
+      nav ul li:hover {
+        color: rgb(0, 0, 0);
+      }
+
+      nav ul li:hover span {
+        transform: translateY(0) scale(2);
+      }
+
+      nav ul li span:nth-child(1) {
+        --n: 1;
+      }
+
+      nav ul li span:nth-child(2) {
+        --n: 2;
+      }
+
+      nav ul li span:nth-child(3) {
+        --n: 3;
+      }
+
+      nav ul li span:nth-child(4) {
+        --n: 4;
+      }
+
+      /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+      #navigation_links nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #navigation_links nav ul li {
+        --c: rgb(0, 0, 0);
+        color: var(--c);
+        font-size: 16px;
+        border: 0.3em solid var(--c);
+        border-radius: 0.5em;
+        width: 26em;
+        height: 3em;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: sans-serif;
+        letter-spacing: 0.1em;
+        text-align: center;
+        line-height: 3em;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: 0.5s;
+        margin: 1em;
+      }
+
+      #navigation_links nav ul li span {
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        background-color: var(--c);
+        transform: translateY(150%);
+        border-radius: 50%;
+        left: calc((var(--n) - 1) * 25%);
+        transition: 0.5s;
+        transition-delay: calc((var(--n) - 1) * 0.1s);
+        z-index: -1;
+      }
+
+      #navigation_links nav ul li:hover {
+        color: goldenrod;
+      }
+
+      #navigation_links nav ul li:hover span {
+        transform: translateY(0) scale(2);
+      }
+
+      #navigation_links nav ul li span:nth-child(1) {
+        --n: 1;
+      }
+
+      #navigation_links nav ul li span:nth-child(2) {
+        --n: 2;
+      }
+
+      #navigation_links nav ul li span:nth-child(3) {
+        --n: 3;
+      }
+
+      #navigation_links nav ul li span:nth-child(4) {
+        --n: 4;
+      }
+
+      /* --------------------------SLIDER--------------------------- */
+
+      #slider {
+        position: relative;
+        width: 800px;
+        height: 465px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      }
+      #slider ul {
+        position: relative;
+        list-style: none;
+        height: 100%;
+        width: 10000%;
+        padding: 0;
+        margin: 0;
+        transition: all 750ms ease;
+        left: 0;
+      }
+      #slider ul li {
+        position: relative;
+        height: 100%;
+        /* width: 100%; */
+        float: left;
+      }
+      #slider ul li img {
+        width: 800px;
+        height: 465px;
+      }
+
+      #slider #prev,
+      #slider #next {
+        width: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        font-size: 2rem;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 150ms ease;
+      }
+      #slider #prev:hover,
+      #slider #next:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+        text-shadow: 0;
+      }
+      #slider #prev {
+        left: 10px;
+      }
+      #slider #next {
+        right: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="nav_bar">
+      <!-- <div
+        id="logo"
+        style="margin-top: 1em; margin-left: -5%; background-color: transparent"
+      >
+        <img
+          height="180px"
+          width="180px"
+          style="background-color: transparent"
+          src="{% static 'logo.png' %}"
+        />
+      </div> -->
+      <!-- <div
+        id="empty_container"
+        style="background-color: rgb(0, 0, 0); width: 100px"
+      ></div>
+      <div
+        id="empty_container"
+        style="background-color: rgb(0, 0, 0); width: 100px"
+      ></div>
+      <div
+        id="empty_container"
+        style="background-color: rgb(0, 0, 0); width: 100px"
+      ></div>
+      <div
+        id="empty_container"
+        style="background-color: rgb(0, 0, 0); width: 100px"
+      ></div>
+      <div
+        id="empty_container"
+        style="background-color: rgb(0, 0, 0); width: 100px"
+      ></div>
+      <div
+        id="empty_container"
+        style="background-color: rgb(0, 0, 0); width: 100px"
+      ></div>
+      <div
+        id="empty_container"
+        style="background-color: rgb(0, 0, 0); width: 10px"
+      ></div> -->
+      <div id="navigation_links">
+        <div id="Home">
+          <nav>
+            <ul style="width: fit-content">
+              <!-- <a href="maps" style="text-decoration: none"> -->
+              <li
+                style="
+                  width: fit-content;
+                  background-color: goldenrod;
+                  border-width: 0.2em;
+                  font-size: 1.1em;
+                  border-color: #000000;
+                  width: 5em;
+                  margin-top: 1em;
+                "
+              >
+                Home
+                <span></span><span></span><span></span><span></span>
+              </li>
+              <!-- </a> -->
+            </ul>
+          </nav>
+        </div>
+        <div id="About">
+          <nav>
+            <ul style="width: fit-content">
+              <!-- <a href="maps" style="text-decoration: none"> -->
+              <a href="what_is_deepshot" style="text-decoration: none">
+                <li
+                  style="
+                    width: fit-content;
+                    border-color: #000000;
+                    background-color: goldenrod;
+                    border-width: 0.2em;
+                    font-size: 1.1em;
+                    width: 15em;
+                    margin-top: 1em;
+                  "
+                >
+                  What is DeepShot ?
+                  <span></span><span></span><span></span><span></span>
+                </li>
+              </a>
+              <!-- </a> -->
+            </ul>
+          </nav>
+        </div>
+        <div id="Feedback">
+          <nav>
+            <ul style="width: fit-content">
+              <!-- <a href="maps" style="text-decoration: none"> -->
+              <a href="feedback" style="text-decoration: none">
+                <li
+                  style="
+                    width: fit-content;
+                    border-color: #000000;
+                    border-width: 0.2em;
+                    background-color: goldenrod;
+                    font-size: 1.1em;
+                    width: 8em;
+                    margin-top: 1em;
+                  "
+                >
+                  Feedback
+                  <span></span><span></span><span></span><span></span>
+                </li>
+              </a>
+              <!-- </a> -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div id="columns_container">
+      <div id="left_column">
+        <div id="heading_container">
+          <h1
+            style="
+              color: goldenrod;
+              font-size: 150px;
+              text-align: center;
+              background-color: rgb(0, 0, 0);
+              margin-top: 5%;
+            "
+          >
+            DeepShot
+          </h1>
+          <h2
+            style="
+              color: goldenrod;
+              font-size: 30px;
+              background-color: rgb(0, 0, 0);
+            "
+          >
+            Watch football highlights extracted by Artificial Intelligence
+          </h2>
+        </div>
+
+        <div id="links_container">
+          <nav>
+            <ul>
+              <a href="maps" style="text-decoration: none">
+                <li style="font-size: 1.5em">
+                  Select your match !!
+                  <span></span><span></span><span></span><span></span>
+                </li>
+              </a>
+
+              <!-- <a href="team_based" style="text-decoration: none">
+                <li>
+                  Select Your Team
+                  <span></span><span></span><span></span><span></span>
+                </li>
+              </a> -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div id="right_column">
+        <div id="slider_container">
+          <div id="slider">
+            <ul id="slideWrap">
+              <li>
+                <img
+                  src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/eae7f4a4-fd6e-41aa-ba15-afae45a7e293/liverpool-fc-2021-22-stadium-home-football-shorts-vm3mmq.png   "
+                />
+              </li>
+              <li>
+                <img
+                  src="https://www.researchgate.net/profile/Eko-Jamzuri/publication/320279921/figure/fig1/AS:547379806179328@1507516923071/Ball-detection-in-less-lighting-condition.png"
+                  alt=""
+                />
+              </li>
+              <li>
+                <img src="{% static 'redcard.png' %}" alt="" />
+              </li>
+              <li>
+                <img src="{% static 'yellowcard.png' %}" alt="" />
+              </li>
+            </ul>
+            <a id="prev" href="#">&#8810;</a>
+            <a id="next" href="#">&#8811;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var responsiveSlider = function () {
+    var slider = document.getElementById("slider");
+    var sliderWidth = slider.offsetWidth;
+    var slideList = document.getElementById("slideWrap");
+    var count = 1;
+    var items = slideList.querySelectorAll("li").length;
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+
+    window.addEventListener("resize", function () {
+      sliderWidth = slider.offsetWidth;
+    });
+
+    var prevSlide = function () {
+      if (count > 1) {
+        count = count - 2;
+        slideList.style.left = "-" + count * sliderWidth + "px";
+        count++;
+      } else if ((count = 1)) {
+        count = items - 1;
+        slideList.style.left = "-" + count * sliderWidth + "px";
+        count++;
+      }
+    };
+
+    var nextSlide = function () {
+      if (count < items) {
+        slideList.style.left = "-" + count * sliderWidth + "px";
+        count++;
+      } else if ((count = items)) {
+        slideList.style.left = "0px";
+        count = 1;
+      }
+    };
+
+    next.addEventListener("click", function () {
+      nextSlide();
+    });
+
+    prev.addEventListener("click", function () {
+      prevSlide();
+    });
+
+    setInterval(function () {
+      nextSlide();
+    }, 1500);
+  };
+
+  window.onload = function () {
+    responsiveSlider();
+  };
+</script>

@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body,
+      html {
+        background-image: url('{% static "background.jpg"%}');
+        /* height: 100%; */
+        margin: 0;
+      }
+    
+      #content_container{
+        display: flex;
+        flex-direction: column;
+        /* background-color: aqua; */
+        justify-content: space-evenly;
+        align-items: space-evenly;
+      }
+
+      #content{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(101, 110, 47);
+        height:15em;
+        margin-top:1em
+      }
+      #content img{
+        width: 30em;
+        border-width: 0.5em;
+        border-style: solid;
+      }
+      #content p{
+        text-align: center;
+        font-size: 2em;
+      }
+
+
+      /* <img src = '{% static 'results.png' %}'/> */
+
+      .coin {
+        width: 350px;
+        height: 400px;
+        border-radius: 100%;
+        position: absolute;
+        background-image: url('{% static "liverpool.jpg"%}');
+        animation: animate 10s linear infinite;
+        perspective: 800px;
+        box-shadow: 10px 10px 80px goldenrod;
+      }
+      @keyframes animate {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .bg {
+        /* The image used */
+        /* background-image: url('{% static "juventus.jpg"%}'); */
+        /* Full height */
+        height: 100%;
+
+        /* Add the blur effect */
+        filter: blur(15px);
+        -webkit-filter: blur(15px);
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .bg-text {
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 40%;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .wrapper {
+        height: 100vh;
+        /*This part is important for centering*/
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+      }
+
+      .typing-demo {
+        width: 60ch;
+        animation: typing 1s steps(22);
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-family: monospace;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+    </style>
+  </head>
+
+  <body></body>
+
+    <div id="heading">
+    <h1
+        style="
+          color: goldenrod;
+          margin-left: 18pc;
+          font-size: 70pt;
+          font-family: monospace;
+          font-weight: 1000;
+        "
+        >What is Deepshot ?</h1
+      >
+    </div>
+    <div id="content_container">
+        <div id="content">
+            <img src="{% static 'redcard.png' %}" alt="" />
+            <p>Imagine a world where you never miss a moment of excitement on the football/soccer field. DeepShot's advanced algorithms are trained to detect all major events in real-time, from heart-stopping goals to thrilling near misses, and even red/yellow cards. With unrivaled accuracy, DeepShot ensures you stay on the edge of your seat, capturing every pivotal moment with precision.</p>    
+        </div>
+        <div id="content">
+            <p>Combining Color Thresholding and YOLOv5, DeepShot is able to deliver a dynamic and immersive viewing experience that captures every goal, near miss, and red/yellow card with unmatched precision. Say goodbye to blurry replays and hello to DeepShot's state-of-the-art techniques that bring the thrill of football/soccer to life like never before.
+</p>    
+            <img src="{% static 'yellowcard.png' %}" alt="" />
+        </div>
+        <div id="content">
+            <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/eae7f4a4-fd6e-41aa-ba15-afae45a7e293/liverpool-fc-2021-22-stadium-home-football-shorts-vm3mmq.png   " alt="" />
+            <p>But that's not all - DeepShot goes above and beyond with YOLOv5, a state-of-the-art object detection technology that sets the industry standard. With YOLOv5, DeepShot's neural networks are trained to recognize and track players, balls, and other objects with unrivaled accuracy and speed. This enables DeepShot to deliver instantaneous and precise event detection, ensuring that no moment of excitement goes unnoticed.</p>    
+        </div>
+    </div>
+  </body>
+</html>
