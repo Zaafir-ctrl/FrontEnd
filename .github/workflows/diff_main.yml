@@ -40,7 +40,7 @@ jobs:
 
       - name: Lint Python Code
         run: |
-          pylint . --ignore=venv
+          pylint FootballPredictions --ignore=venv
 
       - name: Commit Changes
         run: |
