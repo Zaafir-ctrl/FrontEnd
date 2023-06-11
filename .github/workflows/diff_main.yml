@@ -1,4 +1,4 @@
-name: Lint and Format Python Code
+name: Different Workflow
 
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
 
       - name: Lint Python Code
         run: |
-          pylint . --exclude=venv
+          pylint . --ignore=venv
 
       - name: Commit Changes
         run: |
